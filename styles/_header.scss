@@ -1,0 +1,347 @@
+@import "./colors";
+@import "./media-queries";
+
+#blurred {
+  transition: all 250ms ease;
+}
+
+nav {
+  display: flex;
+  width: 100vw;
+  padding: 0 15vw;
+  padding-top: 5vh;
+  justify-content: space-between;
+
+  @include tablet {
+    padding: 5vh 5vw;
+  }
+
+  #logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 3000;
+
+    img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 500ms ease;
+
+      &.show-logo-name {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        transition: all 500ms ease;
+      }
+    }
+  }
+
+  #work-tag {
+    position: relative;
+    z-index: 103;
+    text-decoration: none;
+    color: $white;
+    font-size: 1.2rem;
+    transition: transform 250ms ease;
+
+    i {
+      margin-left: 5px;
+    }
+
+    &:hover {
+      transform: translateX(5px);
+      transition: transform 250ms ease;
+    }
+  }
+}
+
+header {
+  width: 100vw;
+  padding: 30vh 15vw 5vh 15vw;
+  animation: headingMove 1s ease-out forwards;
+  animation-delay: 3s;
+
+  @include tablet {
+    padding: 30vh 5vw 0 5vw;
+  }
+
+  .header-heading {
+    font-family: "Andada Pro", serif;
+    color: $white;
+    font-size: clamp(2rem, 7vw+1, 7vw);
+    font-weight: 700;
+
+    span {
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      display: inline-block;
+
+      &#first-span {
+        animation-delay: 0.5s;
+      }
+
+      &#second-span {
+        animation-delay: 0.8s;
+      }
+
+      &#third-span {
+        animation-delay: 1.1s;
+      }
+
+      &#fourth-span {
+        animation-delay: 1.4s;
+      }
+
+      &#fifth-span {
+        animation-delay: 1.8s;
+      }
+
+      &#sixth-span {
+        animation-delay: 2.2s;
+      }
+    }
+  }
+}
+
+.images-container {
+  display: flex;
+  border-radius: 5px;
+  width: 80vw;
+  margin: 10vh auto 0 auto;
+  height: 100vh;
+  background-size: cover;
+  transition: transform 250ms ease;
+  animation: headingMove 1s ease-out forwards;
+  animation-delay: 3s;
+  opacity: 0;
+
+  @include mini {
+    width: 100vw;
+    height: 40vh;
+    border-radius: 0;
+  }
+
+  &:hover {
+    transform: scale(0.95);
+    transition: transform 250ms ease;
+  }
+}
+
+#text-container {
+  width: 100vw;
+  padding: 10vh 15vw;
+  color: $white;
+
+  @include tablet {
+    padding: 5vh 5vw;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw+1, 4vw);
+    margin-bottom: 40px;
+
+    @include phone {
+      margin-bottom: 15px;
+    }
+  }
+
+  p {
+    font-size: clamp(1.3rem, 2vw+1, 2rem);
+    line-height: 55px;
+    font-weight: 500;
+    margin-bottom: 50px;
+
+    @include phone {
+      font-weight: 400;
+      line-height: 35px;
+    }
+  }
+}
+.border-bottom {
+  height: 0.5px;
+  width: 0%;
+  background: rgb(39, 39, 39);
+  animation: borderAnimation 2s ease-out forwards;
+  margin: 0;
+}
+
+.second-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: borderAnimation2 2s ease-out forwards;
+  transform: translateX(15vw);
+
+  @include tablet {
+    animation: borderAnimation3 2s ease-out forwards;
+    transform: translateX(5vw);
+  }
+}
+
+#clients-container {
+  position: relative;
+  width: 100vw;
+  padding: 50px 15vw;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  @include miniLaptop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mini {
+    grid-template-columns: auto;
+    grid-row-gap: 20px;
+    grid-template-areas:
+      "a a"
+      "b c";
+  }
+
+  @include tablet {
+    grid-template-areas:
+      "a a"
+      "b c";
+    padding: 25px 5vw;
+  }
+  @include phone {
+    grid-template-areas:
+      "a a"
+      "b b"
+      "c c";
+    padding: 25px 5vw;
+  }
+
+  p {
+    grid-column: span 3;
+    color: $gray;
+
+    @include miniLaptop {
+      grid-column: span 1;
+    }
+
+    @include mini {
+      grid-area: a;
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+
+    @include miniLaptop {
+      grid-column: span 1;
+    }
+    li {
+      color: $white;
+      margin: 5px 0;
+      font-size: clamp(1.3rem, 1.6vw+1, 1.6vw);
+    }
+
+    &:first-of-type {
+      @include mini {
+        grid-area: b;
+      }
+    }
+
+    &:last-of-type {
+      @include mini {
+        grid-area: c;
+      }
+    }
+  }
+
+  margin-bottom: 50px;
+}
+
+/* APPEAR */
+
+/* important */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1000ms ease-in;
+}
+/* important */
+.fade-in.appear {
+  opacity: 1;
+}
+/* important */
+.from-left {
+  transform: translateX(-50%);
+}
+/* important */
+.from-right {
+  transform: translateX(50%);
+}
+.from-down {
+  transform: translateY(100px);
+}
+.from-up.appear {
+  transform: translateY(0);
+}
+.from-up {
+  transform: translateY(-100px);
+}
+.from-down.appear {
+  transform: translateY(0);
+}
+/* important */
+.from-left,
+.from-right,
+.from-down,
+.from-up {
+  transition: transform 1000ms ease-in;
+}
+/* important */
+.from-left.appear,
+.from-right.appear {
+  transform: translateX(0);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imagesContainerMove {
+  to {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes headingMove {
+  to {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+}
+
+@keyframes borderAnimation {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes borderAnimation2 {
+  to {
+    width: 70vw;
+  }
+}
+
+@keyframes borderAnimation3 {
+  to {
+    width: 90vw;
+  }
+}

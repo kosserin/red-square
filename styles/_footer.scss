@@ -1,0 +1,376 @@
+@import "./colors";
+@import "./media-queries";
+
+footer {
+  position: relative;
+  width: 100vw;
+  padding: 5vh 15vw 30vh 15vw;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+
+  & > a {
+    position: relative;
+    z-index: 1000;
+    text-decoration: none;
+    color: $white;
+    font-size: clamp(2rem, 3vw+1, 3.5vw);
+    font-weight: 900;
+
+    span {
+      color: $red;
+    }
+  }
+
+  @include tablet {
+    padding: 5vh 5vw 30vh 5vw;
+  }
+
+  @include phone {
+    flex-direction: column;
+  }
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    @include phone {
+      margin-top: 30px;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .first-row {
+      display: flex;
+      align-items: center;
+
+      & > button,
+      & > a {
+        margin: 0 15px;
+        color: $white;
+        font-size: clamp(1.4rem, 1.5vw+1, 1.5vw);
+        transition: all 1000ms ease;
+
+        @include tablet {
+          margin: 0 5px;
+        }
+
+        &:hover {
+          color: $gray;
+          transition: all 250ms ease;
+        }
+      }
+    }
+
+    button {
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      display: inline;
+
+      i {
+        font-size: 1.3rem;
+      }
+
+      p {
+        display: inline;
+        font-weight: 700;
+      }
+    }
+
+    .second-row {
+      display: flex;
+      color: $gray;
+      margin-top: 25px;
+
+      p {
+        margin: 0 15px;
+        font-size: clamp(1rem, 1vw+1, 1vw);
+
+        @include tablet {
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    position: absolute;
+    bottom: -90vh;
+    left: 0;
+    width: 70vw;
+    padding: 2.5vh 5vw;
+    transform: translateX(15vw);
+    font-size: 1.5rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    background: url("../assets/second.jpg") no-repeat center;
+    background-size: cover;
+    transition: transform 300ms ease;
+    filter: blur(5px);
+    border-radius: 5px;
+
+    @include tablet {
+      width: 100vw;
+      transform: translateX(0vw);
+      bottom: -80vh;
+      filter: blur(0);
+    }
+
+    &:hover {
+      transform: translate(15vw, -20px);
+      transition: transform 300ms ease;
+      filter: blur(0);
+
+      @include phone {
+        transform: translate(0px);
+      }
+    }
+  }
+
+  .footer-bottom-text {
+    pointer-events: none;
+    position: absolute;
+    bottom: 5vh;
+    display: flex;
+    justify-content: space-between;
+    width: 70vw;
+    padding: 0 2.5vw;
+    color: $white;
+    font-size: 1.3rem;
+    z-index: 2005;
+
+    @include tablet {
+      width: 90vw;
+      justify-content: center;
+      bottom: 10vh;
+      font-size: 1.1rem;
+    }
+
+    p:first-of-type {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    i {
+      @include tablet {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .footer-bottom,
+  .footer-bottom-text,
+  .right-side {
+    transition: all 300ms ease;
+  }
+}
+
+.nugs-container {
+  position: relative;
+  overflow: hidden;
+  transition: all 1000ms ease;
+}
+
+#nugs-container {
+  position: absolute;
+  bottom: -0vh;
+  left: 0;
+  width: 85vw;
+  margin: 0 auto;
+  transform: translate(7.5vw, 100vh);
+  background: $brown;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  padding: 3rem 5rem;
+  z-index: 4000;
+  display: flex;
+  flex-direction: column;
+  transition: all 1000ms ease;
+
+  @include tablet {
+    transform: translateX(0);
+    width: 100vw;
+    padding: 2rem;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  .nugs-top-container {
+    padding-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    border-bottom: 3px solid $nugs-button;
+
+    @include miniLaptop {
+      flex-direction: column;
+    }
+
+    .nugs-left-container {
+      h1 {
+        font-size: clamp(3rem, 5vw+1, 5vw);
+        color: $nugs-text;
+        font-weight: 700;
+      }
+
+      .form-container {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+
+        input {
+          background: $nugs-input;
+          border: none;
+          outline: none;
+          padding: 1rem;
+          border-radius: 10px;
+          font-size: 1.1rem;
+          min-width: 300px;
+          height: 60px;
+
+          @include phone {
+            min-width: 200px;
+          }
+
+          &::placeholder {
+            color: $white;
+          }
+        }
+
+        button {
+          border: none;
+          outline: none;
+          background: $nugs-button;
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+          margin-left: 10px;
+          cursor: not-allowed;
+
+          i {
+            font-size: 1rem;
+            color: $nugs-button-inside;
+          }
+        }
+      }
+    }
+
+    .nugs-right-container {
+      margin-left: 10%;
+
+      @include miniLaptop {
+        margin-left: 0;
+        margin-top: 30px;
+      }
+
+      p {
+        color: $white;
+        font-size: clamp(1.2rem, 1.5vw+1, 1.5vw);
+        font-weight: 500;
+      }
+    }
+  }
+
+  .nugs-bottom-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 50px;
+
+    button {
+      background: transparent;
+      color: $nugs-bottom;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: $nugs-bottom;
+        bottom: -5px;
+        left: 0;
+        transition: all 250ms ease;
+      }
+
+      &:hover {
+        color: $nugs-text;
+        transition: all 250ms ease;
+
+        &::before {
+          bottom: 0;
+          transition: all 250ms ease;
+        }
+      }
+    }
+
+    a {
+      display: inline-block;
+      color: $nugs-bottom;
+      text-decoration: none;
+      position: relative;
+      transition: all 250ms ease;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: $nugs-bottom;
+        bottom: -5px;
+        left: 0;
+        transition: all 250ms ease;
+      }
+
+      &:hover {
+        color: $nugs-text;
+        transition: all 250ms ease;
+
+        &::before {
+          bottom: 0;
+          transition: all 250ms ease;
+        }
+      }
+    }
+  }
+}
+
+.nugs-container.show-nugs {
+  overflow: visible;
+  transition: all 1000ms ease;
+
+  & #nugs-container {
+    transform: translate(7.5vw, 0);
+    transition: all 1000ms ease;
+
+    @include tablet {
+      transform: translateX(0);
+    }
+  }
+}
+
+#appear-on-nugs-show {
+  width: 100vw;
+  height: 400vh; /* 
+  background: red; */
+  z-index: 2000;
+  position: absolute;
+  display: none;
+}
+
+#appear-on-nugs-show.appear-now {
+  display: block;
+  transform: translateY(-400vh);
+}
