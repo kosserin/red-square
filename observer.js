@@ -1,6 +1,7 @@
 
 const faders = document.querySelectorAll(".fade-in");
 const sliders = document.querySelectorAll(".slide-in");
+const borderBottoms = document.querySelectorAll('.border-bottom');
 
 const appearOptions = {
   threshold: 0,
@@ -29,4 +30,8 @@ faders.forEach(fader => {
 
 sliders.forEach(slider => {
   appearOnScroll.observe(slider);
+});
+
+borderBottoms.forEach(borderBottom => {
+  appearOnScroll.observe(borderBottom);
 });

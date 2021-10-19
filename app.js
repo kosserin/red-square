@@ -124,7 +124,8 @@ const textShadow = () => {
 
     text.addEventListener('mousemove', shadow);
     text.addEventListener('mouseout', () =>{
-        text.style.textShadow = 'none';
+        textP.style.textShadow = 'none';
+        textSpan.style.textShadow = 'none';
     })
 }
 

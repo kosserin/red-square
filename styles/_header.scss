@@ -77,7 +77,7 @@ header {
   .header-heading {
     font-family: "Andada Pro", serif;
     color: $white;
-    font-size: clamp(2rem, 7vw+1, 7vw);
+    font-size: clamp(2.5rem, 7vw+1, 7vw);
     font-weight: 700;
 
     span {
@@ -170,19 +170,32 @@ header {
   height: 0.5px;
   width: 0%;
   background: rgb(39, 39, 39);
-  animation: borderAnimation 2s ease-out forwards;
   margin: 0;
+  transition: all 1500ms ease;
+
+  &.appear {
+    width: 100%;
+    transition: all 1500ms ease;
+  }
 }
 
 .second-border {
   position: absolute;
   bottom: 0;
   left: 0;
-  animation: borderAnimation2 2s ease-out forwards;
   transform: translateX(15vw);
+  transition: all 1500ms ease;
+
+  &.appear {
+    width: 70vw;
+    transition: all 1500ms ease;
+
+    @include tablet {
+      width: 90vw;
+    }
+  }
 
   @include tablet {
-    animation: borderAnimation3 2s ease-out forwards;
     transform: translateX(5vw);
   }
 }
@@ -284,13 +297,13 @@ header {
   transform: translateX(50%);
 }
 .from-down {
-  transform: translateY(100px);
+  transform: translateY(20px);
 }
 .from-up.appear {
   transform: translateY(0);
 }
 .from-up {
-  transform: translateY(-100px);
+  transform: translateY(-20px);
 }
 .from-down.appear {
   transform: translateY(0);
