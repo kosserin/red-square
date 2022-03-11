@@ -14,11 +14,11 @@ const appearOnScroll = new IntersectionObserver(function(
 ) {
   entries.forEach(entry => {
     if (!entry.isIntersecting && !entry.target.classList.contains('slide')) {
-        entry.target.classList.remove("appear");
-        /* return; */
+        // entry.target.classList.remove("appear");
+        return;
     } else {
       entry.target.classList.add("appear");
-/*       appearOnScroll.unobserve(entry.target); */
+     appearOnScroll.unobserve(entry.target);
     }
   });
 },
